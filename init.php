@@ -34,7 +34,7 @@ namespace Kint {
 
         public static function die($out)
         {
-            if (0 !== $out) {
+            if (is_string($out)) {
                 echo $out;
             }
 
