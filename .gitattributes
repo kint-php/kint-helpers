@@ -1,0 +1,5 @@
+/composer.lock binary
+
+/.gitignore export-ignore
+/.php-cs-fixer.php export-ignore
+/composer.lock export-ignore

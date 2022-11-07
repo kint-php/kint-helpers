@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * The MIT License (MIT)
  *
@@ -32,9 +34,9 @@ namespace Kint {
         {
         }
 
-        public static function die($out)
+        public static function die($out): void
         {
-            if (is_string($out)) {
+            if (\is_string($out)) {
                 echo $out;
             }
 
