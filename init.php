@@ -34,6 +34,13 @@ namespace Kint {
         {
         }
 
+        /**
+         * Exit after optionally printing dump output.
+         *
+         * @param int|string $out
+         *
+         * @return never
+         */
         public static function die($out): void
         {
             if (\is_string($out)) {
@@ -50,8 +57,6 @@ namespace Kint {
          * with some minor visibility enhancements added.
          *
          * If run in CLI colors are disabled
-         *
-         * @param mixed ...$args
          *
          * @return int|string
          */
@@ -84,8 +89,6 @@ namespace Kint {
 
         /**
          * Alias of Kint::dump(), however the output is in raw text.
-         *
-         * @param mixed ...$args
          *
          * @return int|string
          */
@@ -120,8 +123,6 @@ namespace {
         /**
          * Alias of Kint::dump().
          *
-         * @param mixed ...$args
-         *
          * @return int|string
          */
         function d(...$args)
@@ -141,8 +142,6 @@ namespace {
          *
          * If run in CLI colors are disabled
          *
-         * @param mixed ...$args
-         *
          * @return int|string
          */
         function s(...$args)
@@ -156,8 +155,6 @@ namespace {
     if (!\function_exists('ss')) {
         /**
          * Alias of Kint::dump(), however the output is in raw text.
-         *
-         * @param mixed ...$args
          *
          * @return int|string
          */
@@ -187,11 +184,9 @@ namespace {
         /**
          * Alias of Kint::dump(). Ends the script after running.
          *
-         * @param mixed ...$args
-         *
          * @return never
          */
-        function dd(...$args)
+        function dd(...$args): void
         {
             Helpers::die(Kint::dump(...$args));
         }
@@ -203,11 +198,9 @@ namespace {
         /**
          * Alias of Kint::dump(), however the output is in plain text. Ends the script after running.
          *
-         * @param mixed ...$args
-         *
          * @return never
          */
-        function sd(...$args)
+        function sd(...$args): void
         {
             Helpers::die(Helpers::s(...$args));
         }
@@ -219,11 +212,9 @@ namespace {
         /**
          * Alias of Kint::dump(). Ends the script after running.
          *
-         * @param mixed ...$args
-         *
          * @return never
          */
-        function ssd(...$args)
+        function ssd(...$args): void
         {
             Helpers::die(Helpers::ss(...$args));
         }
@@ -237,7 +228,7 @@ namespace {
          *
          * @return never
          */
-        function ktd()
+        function ktd(): void
         {
             Helpers::die(Kint::trace());
         }

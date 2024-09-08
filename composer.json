@@ -1,7 +1,7 @@
 {
     "name": "kint-php/kint-helpers",
     "description": "Kint helper functions",
-    "keywords": ["kint", "php", "debug"],
+    "keywords": ["dump", "debug"],
     "type": "library",
     "homepage": "https://kint-php.github.io/kint/",
     "license": "MIT",
@@ -12,8 +12,8 @@
         }
     ],
     "require": {
-        "php": ">=7.1",
-        "kint-php/kint": "^4 || ^5"
+        "php": ">=7.4",
+        "kint-php/kint": "^4 || ^5 || ^6"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3"
@@ -22,6 +22,6 @@
         "files": ["init.php"]
     },
     "scripts": {
-        "format": "php-cs-fixer fix"
+        "format": "PHP_CS_FIXER_IGNORE_ENV=1 php-cs-fixer fix"
     }
 }

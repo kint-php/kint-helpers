@@ -33,8 +33,8 @@ return (new PhpCsFixer\Config())
         'combine_consecutive_issets' => true,
         'combine_consecutive_unsets' => true,
         'dir_constant' => true,
-        'escape_implicit_backslashes' => [
-            'single_quoted' => true,
+        'string_implicit_backslashes' => [
+            'single_quoted' => 'escape',
         ],
         'explicit_indirect_variable' => true,
         'explicit_string_variable' => true,
@@ -83,32 +83,36 @@ return (new PhpCsFixer\Config())
             ],
             'sort_algorithm' => 'none',
         ],
-        'php_unit_construct' => true,
+        'php_unit_construct' => [
+            'assertions' => ['assertSame', 'assertNotSame'],
+        ],
         'php_unit_dedicate_assert' => true,
         'php_unit_namespaced' => true,
         'php_unit_set_up_tear_down_visibility' => true,
-        'php_unit_test_annotation' => false,
+        'php_unit_test_annotation' => true,
         'php_unit_test_class_requires_covers' => true,
-        'phpdoc_add_missing_param_annotation' => [
-            'only_untyped' => true,
-        ],
         'phpdoc_to_comment' => false, // Required for certain Psalm workarounds
         'phpdoc_types_order' => true,
-        'simplified_null_return' => false,
         'strict_param' => true,
         'string_line_ending' => true,
         'self_accessor' => true,
-        'visibility_required' => true,
         'declare_strict_types' => true,
         'global_namespace_import' => [
             'import_constants' => false,
             'import_functions' => false,
             'import_classes' => true,
         ],
+        'operator_linebreak' => [
+            'only_booleans' => true,
+            'position' => 'end',
+        ],
+        'no_null_property_initialization' => false,
+        'trailing_comma_in_multiline' => [
+            'elements' => ['array_destructuring', 'arrays', 'match'],
+        ],
     ])
     ->setFinder(
         PhpCsFixer\Finder::create()
             ->in(__DIR__)
-            ->exclude(['build', 'tests/Fixtures'])
             ->append([__FILE__])
     );
